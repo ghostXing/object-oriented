@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style:none;
+        }
+    </style>
+    <script src="js/template.js"></script>
+    <script src="js/frame.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script id="art" type="text/html">
+<h4>{{name}}</h4>
+<ul>
+    {{each films}}
+    <li>
+        <strong style="color:red">电影名称:</strong>{{$value.title}}<br>
+        <strong style="color:green">导演:</strong>{{$value.lead}}<br>
+        <strong style="color:blue">主角:</strong>{{$value.role}}
+    </li>
+    {{/each}}
+</ul>
+</script>
+<script>
+    var data ={
+        name:'电影列表',
+        films:
+            [
+                {
+                    title: '复仇者联盟2',
+                    lead: '乔斯·韦登',
+                    role: '小罗伯特·唐尼'
+                },
+                {
+                    title: '速度与激情7',
+                    lead: '范·迪塞尔',
+                    role: '范·迪塞尔'
+                },
+                {
+                    title: '左耳',
+                    lead: '苏有朋',
+                    role: '苏有朋'
+                },
+                {
+                    title: '万物生长',
+                    lead: '范冰冰',
+                    role: '范冰冰 韩庚'
+                },
+                {
+                    title: '盗墓笔记',
+                    lead: '苏有朋',
+                    role: '美人鱼'
+                }
+            ]
+    };
+    //原生用法 var html = template("art",data);
+    var html = $$.htmlTemplate("art",data);
+    document.getElementById("box").innerHTML = html;
+</script>
+</body>
+</html>

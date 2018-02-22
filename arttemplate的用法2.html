@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style:none;
+        }
+    </style>
+    <script src="js/template.js"></script>
+    <script src="js/frame.js"></script>
+    <!--字符串拼接中使用arttemplate模板-->
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var film = {name:'美人鱼',lead:'周星驰',role:'邓超'}
+    var str = "<ul>"
+                    +"<li>{{name}}</li>"
+                    +"<li>{{lead}}</li>"
+                    +"<li>{{role}}</li>"
+                +"</ul>";
+    //var render = template.compile(str);
+    //var html = render(film);
+    var html = $$.strTemplate(str,film);
+    document.getElementById("box").innerHTML = html;
+</script>
+</body>
+</html>

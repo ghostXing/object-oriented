@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Product(price) {
+        this.name = "Amy";
+        this.age = 18;
+        this.sex = "女";
+        this.price = price;
+        //设置对象某个属性的可读写性（权限）
+        //     Object.defineProperty(this, "price", {
+        //         value: 21,
+        //         writable: false
+        //     });
+
+        Object.defineProperty(this, "price", {
+            get: function () {
+                return price*0.9;
+            },
+            set: function (value) {
+                price = value;
+            }
+
+        });
+
+
+    }
+
+    var product1 = new Product(30);
+    console.log(product1.price);
+</script>
+</html>

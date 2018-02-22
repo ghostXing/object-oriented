@@ -1,0 +1,76 @@
+//�����Ʒ����
+function Product(){
+    /*��Ʒ����*/
+    this.name='HM���з���ɽ��'
+    /*��Ʒ����*/
+    this.description='�����ģ������ģ���ɽһ��������һ������ã��Һã���Ҳ�ã�̫���ˣ�һ�����������������'
+    /*��ͨ�۸�*/
+    this.normalPrice=144
+    /*�Ź��۸�*/
+    this.groupbuyPrice=120
+    /*�Ѿ����������*/
+    this.buySum=100;
+    /*�ֲ�ͼƬ�б�*/
+    this.images=[
+        {small:'../images/s11.jpg',big:'../images/s11.jpg'},
+        {small:'../images/s12.jpg',big:'../images/s12.jpg'},
+        {small:'../images/s13.jpg',big:'../images/s13.jpg'}
+    ]
+}
+Product.prototype={
+    /*��ͨ����*/
+    buy:function(){},
+    /*��ͼƬ�б�*/
+    bindDOMImage:function(){
+        var str=''
+        // for(var i= 0,len=this.images.length;i<len;i++) {
+        //     str+='<li>'
+        //     str+='<img class="etalage_thumb_image" src="'+ this.images[i].small+'" class="img-responsive" />'
+        //     str+='<img class="etalage_source_image" src="'+ this.images[i].small+'" class="img-responsive" />'
+        //     str+='</li>'
+        // }
+        var html = '';
+            html += '{{each images as value i }}';
+            html +='<li>'
+                html +='<img class="etalage_thumb_image" src="{{value.small}}" class="img-responsive" />'
+                html +='<img class="etalage_source_image" src="{{value.big}}" class="img-responsive" />'
+            html +='</li>'
+            html +='{{/each}}';
+        // html+='{{each images as value i}}'
+        // html+='<li>'
+        // html+='<img class="etalage_thumb_image" src="{{value.small}}" class="img-responsive" />'
+        // html+='<img class="etalage_source_image" src="{{value.big}}" class="img-responsive" />'
+        // html+='</li>'
+        // html+='{{/each}}'
+        $('#etalage').html($$.strTemplate(html,this));
+
+        /*jquery���ʵ�ֵĻõ�Ƭ��Ч*/
+        $('#etalage').etalage({
+            thumb_image_width: 250,
+            thumb_image_height: 300,
+        });
+    },
+    /*����ϸ��Ϣ*/
+    bindDOMDetail:function(){
+        /*��Ԫ��*/
+        $('#pname').html(this.name)
+        $('#description').html(this.description)
+        $('#price').html(this.normalPrice)
+        $('#groupPrice').html(this.groupbuyPrice)
+        $('#buyCount').html(this.buySum)
+    },
+    /*���¼�*/
+    bindEvents:function(){
+        /*���¼�*/
+        $('#btnaddcart').onclick=function(){
+
+        }
+        $('#btnbuy').onclick=function(){}
+    },
+    /*�Ź�*/
+    groupBuy:function(){},
+    /*��ӵ����ﳵ*/
+    addCart:function(){
+
+    }
+}

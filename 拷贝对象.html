@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/frame.js"></script>
+</head>
+<body>
+<script>
+    //对象拷贝与拷贝多个对象的属性
+    var boy = new Object();
+    boy.name = "john";
+    boy.age = 17;
+    boy.sex = "男";
+    // var john = $$.extend({},boy);
+    // console.log(john.sex);
+    var girl = {
+        technology: ["凤舞九天","凌天君","一剑封喉","强者之上","无可匹敌"],
+        attack: function () {
+            console.log("我打你一下");
+        }
+    };
+    var duxiake = $$.extendMany({},boy,girl);
+    console.log(duxiake.technology);
+    console.log(duxiake.sex);
+    duxiake.attack();
+</script>
+</body>
+</html>
